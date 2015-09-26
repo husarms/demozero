@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag 'application', media: 'all',
                           'data-turbolinks-track' => true %>
@@ -10,22 +11,87 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
   </script>
   <![endif]-->
+
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", '#', id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav pull-right">
-        <li><%= link_to "Home",   '#' %></li>
-        <li><%= link_to "Help",   '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
-      </ul>
-    </nav>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "demo:zero", root_path, class: "navbar-brand",'data-no-turbolink' => true %>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path,'data-no-turbolink' => true %></li>
+          <li class="<%= 'active' if current_page?(audio_visualizer_path) %>"><%= link_to "Audio Visualizer", audio_visualizer_path,'data-no-turbolink' => true %></li>
+          <li class="<%= 'active' if current_page?(demos_path) %>"><%= link_to "Demos", demos_path,'data-no-turbolink' => true %></li>
+          <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path,'data-no-turbolink' => true %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </div>
-</header>
+</nav>
+
+
 <div class="container">
-  <%= yield %>
+<!--Body content here-->
+<%= yield %>
 </div>
+
+<!--Footer-->
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+
+      <div class="muted pull-right">&copy; 2014 demo:zero</div>
+      <!--<h1>Footer content</h1>-->
+      <!--<h1>Follow Us</h1>-->
+      <!--<div class="btn-group">-->
+      <!--<a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>-->
+      <!--<a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>-->
+      <!--<a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!--<script data-turbolinks-track="false" src="/assets/AudioVisualizerSketch.js"></script>-->
+<!--<script data-turbolinks-track="false" src="/assets/TimeOfTheSeason.wav"></script>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="inner cover">
+        <h1 class="cover-heading">Audio Visualizer Sketch</h1>
+        <hr>
+
+        <div id="content">
+          <div id="div_canvas">
+            <!--<canvas id="AudioVisualizerSketch" data-processing-sources="/assets/AudioVisualizerSketch.js" width="1200" height="700">-->
+            <canvas id="AudioVisualizerSketch" data-processing-sources="/assets/AudioVisualizerSketch.js" style="height:auto; width:auto;">
+              <p>Your browser does not support the canvas tag.</p>
+              <!-- Note: you can put any alternative content here. -->
+            </canvas>
+            <noscript>
+              <p>JavaScript is required to view the contents of this page.</p>
+            </noscript>
+          </div>
+          <p id="sources">Source code: <a href="/assets/AudioVisualizerSketch.js" target="_blank">AudioVisualizerSketch</a> <a href="/assets/maxim.js" target="_blank">maxim.js</a> </p>
+          <p>
+          Built with <a href="http://processing.org" title="Processing" target="_blank">Processing</a>
+          and <a href="http://processingjs.org" title="Processing.js" target="_blank">Processing.js</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $( document ).ready(function() {
+        $(window).resize(function() {
+            var pjs = Processing.getInstanceById('AudioVisualizerSketch');
+            pjs.resizeSketch(document.getElementById('div_canvas').offsetWidth,  document.getElementById('div_canvas').offsetHeight);
+        } );
+        $(window).resize();
+    });
+</script>
